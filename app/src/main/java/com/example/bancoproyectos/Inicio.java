@@ -11,9 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class Inicio extends AppCompatActivity {
     private EditText etu, etc;
     private Button inicio;
+
 
 
     @SuppressLint("MissingInflatedId")
