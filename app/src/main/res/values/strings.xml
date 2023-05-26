@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">bancoProyectos</string>
+    <string name="txt_buscador">Ingresa el nombre del proyecto</string>
+    <string name="btn_buscar">Ir</string>
+    <string name="visorWeb">Visor</string>
+    <string name="btn_regresar">Regresar</string>
 </resources>
