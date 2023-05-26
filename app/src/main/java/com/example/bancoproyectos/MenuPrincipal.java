@@ -27,7 +27,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class MenuPrincipal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
+public class MenuPrincipal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     Toolbar toolbar;
@@ -38,7 +38,7 @@ public class MenuPrincipal extends AppCompatActivity implements NavigationView.O
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+  /*  protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
         toolbar = findViewById(R.id.toolbar);
@@ -56,13 +56,10 @@ public class MenuPrincipal extends AppCompatActivity implements NavigationView.O
         navigationView.setNavigationItemSelectedListener(this);
 
 
-
-
-
-       // Toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
+        // Toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
-       // Toggle.setDrawerIndicatorEnabled(true);
-       // Toggle.syncState();
+        // Toggle.setDrawerIndicatorEnabled(true);
+        // Toggle.syncState();
 
 
         fragmentManager = getSupportFragmentManager();
@@ -70,63 +67,69 @@ public class MenuPrincipal extends AppCompatActivity implements NavigationView.O
         fragmentTransaction.add(R.id.container_fragment, new MainFragment());
         fragmentTransaction.commit();
 
-    }
-
-   /* private ActionBarDrawerToggle setupDrawertoggle(){
-        return new Toggle(this,
-        drawerLayout,
-        toolbar,
-        R.string.open,
-        R.string.close
-        );
     }*/
-    private boolean onNavigationItemSelecte(MenuItem Item) {
-        int itemId = Item.getItemId();
-        switch (itemId) {
-            case R.id.perfil:
-                Intent click = new Intent(this, Perfil.class);
-                startActivity(click);
 
-                break;
-            case R.id.mis_proyectos:
-                Intent clicks = new Intent(this, MisProyectos.class);
-                startActivity(clicks);
+    /* private ActionBarDrawerToggle setupDrawertoggle(){
+         return new Toggle(this,
+         drawerLayout,
+         toolbar,
+         R.string.open,
+         R.string.close
+         );
+     }*/
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu_principal);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        drawerLayout = findViewById(R.id.drawer);
+        navigationView = findViewById(R.id.navigationView);
 
-                break;
-            case R.id.equipo:
-                Intent clic = new Intent(this, EquipoTrabajo.class);
-                startActivity(clic);
-                break;
 
-        }
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
+        //lo sgt se implementa luego de haber implementado NavigationView.OnNavigationItemSelectedListener
+        navigationView.setNavigationItemSelectedListener(this);
+
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+        actionBarDrawerToggle.syncState();
+
+        //cargar fragment principal en la actividad
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.container_fragment, new MainFragment());
+        fragmentTransaction.commit();
+
     }
+
 
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        //para cerrar automaticamente el menu
         drawerLayout.closeDrawer(GravityCompat.START);
-        if(menuItem.getItemId() == R.id.perfil){
+        if (menuItem.getItemId() == R.id.perfil) {
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment,new MainFragment());
+            fragmentTransaction.replace(R.id.container_fragment, new MainFragment());
             fragmentTransaction.commit();
         }
-        if(menuItem.getItemId() == R.id.mis_proyectos){
+        if (menuItem.getItemId() == R.id.mis_proyectos) {
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment,new MainFragment());
+            fragmentTransaction.replace(R.id.container_fragment, new MainFragment());
             fragmentTransaction.commit();
         }
-        if(menuItem.getItemId() == R.id.equipo){
+        if (menuItem.getItemId() == R.id.equipo) {
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment, new MainFragment());
             fragmentTransaction.commit();
         }
-
         return false;
     }
+
+
 
   /*  @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -134,4 +137,5 @@ public class MenuPrincipal extends AppCompatActivity implements NavigationView.O
             return true;
         return super.onOptionsItemSelected(item);
     }*/
-}
+    }
+

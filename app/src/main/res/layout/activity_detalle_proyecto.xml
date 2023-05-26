@@ -65,7 +65,7 @@
       android:layout_marginEnd="40dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@drawable/descarga" />
+      app:srcCompat="@drawable/whatsapp_image_2023_04_19_at_7_58_05_pm" />
 
   <TextView
       android:id="@+id/txt_codigo_fuente"
