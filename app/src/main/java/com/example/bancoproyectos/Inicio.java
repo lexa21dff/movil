@@ -38,7 +38,7 @@ public class Inicio extends AppCompatActivity {
                 String contraseña = etc.getText().toString();*/
 
                // if ( etu.equals("usuario") && contraseña.equals("contraseña")){
-                    Intent intent = new Intent(Inicio.this, MenuPrincipal.class);
+                    Intent intent = new Intent(Inicio.this, crearProyecto.class);
                     startActivity(intent);
 
 
