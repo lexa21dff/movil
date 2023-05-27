@@ -9,8 +9,11 @@
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BancoProyectos"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         tools:targetApi="31" >
+        <activity
+            android:name=".VisorWeb"
+            android:exported="false" />
         <activity
             android:name=".crearProyecto"
             android:exported="false" />

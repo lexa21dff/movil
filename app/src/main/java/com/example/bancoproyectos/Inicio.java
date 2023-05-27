@@ -11,9 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class Inicio extends AppCompatActivity {
     private EditText etu, etc;
     private Button inicio;
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -36,7 +38,7 @@ public class Inicio extends AppCompatActivity {
                 String contraseña = etc.getText().toString();*/
 
                // if ( etu.equals("usuario") && contraseña.equals("contraseña")){
-                    Intent intent = new Intent(Inicio.this, MenuPrincipal.class);
+                    Intent intent = new Intent(Inicio.this, crearProyecto.class);
                     startActivity(intent);
 
 
