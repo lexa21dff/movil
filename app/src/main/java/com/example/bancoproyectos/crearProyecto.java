@@ -61,13 +61,13 @@ public class crearProyecto extends AppCompatActivity {
                 et_estado.setText(fila.getString(1));
                 BaseDeDatos.close();
             }else{
-                Toast.makeText(this, "no existe el articulo" +this.et_nombre, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "no existe los datos " +this.et_nombre, Toast.LENGTH_SHORT).show();
                 BaseDeDatos.close();
             }
 
 
         }else{
-            Toast.makeText(this, "debe ingresar un codigo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "debe ingresar datos", Toast.LENGTH_SHORT).show();
         }
 
     }
