@@ -1,87 +1,34 @@
 package com.example.bancoproyectos;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-
-import android.content.ClipData;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.SQLData;
 
-import androidx.appcompat.widget.Toolbar;
-
-
-import com.google.android.material.navigation.NavigationView;
-
-
-import com.google.android.material.navigation.NavigationView;
-
-public class MenuPrincipal extends AppCompatActivity  {
-    DrawerLayout drawerLayout;
-    ActionBarDrawerToggle actionBarDrawerToggle;
-    Toolbar toolbar;
-    NavigationView navigationView;
-
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-
+public class MenuPrincipal extends AppCompatActivity {
+    private EditText et1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        drawerLayout = findViewById(R.id.drawer);
-        navigationView = findViewById(R.id.navigationView);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
-        actionBarDrawerToggle.syncState();
+        et1= (EditText)findViewById(R.id.txt_buscador);
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.perfil:
-                        Intent i = new Intent(MenuPrincipal.this, Perfil.class);
-                        startActivity(i);
-                        return true;
+    }
 
-                    case R.id.mis_proyectos:
-                        Intent in = new Intent(MenuPrincipal.this, MisProyectos.class);
-                        startActivity(in);
-                        return true;
+    public void Buscar(View view){
+        Intent intent = new Intent(this, VisorWeb.class);
+        intent.putExtra("nombresitio", et1.getText().toString());
+        startActivity(intent);
+    }
 
-                    case R.id.equipo:
-                        Intent equi = new Intent(MenuPrincipal.this, EquipoTrabajo.class);
-                        startActivity(equi);
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
 }
-
-    private void remplaceFragment(Fragment fragment) {
-        FragmentManager frgManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = frgManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmenPadre, fragment);
-        fragmentTransaction.commit();
-    }
-
-    }

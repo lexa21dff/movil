@@ -14,7 +14,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table proyecto (id_proyecto int primary key,nombre text,descripcion text,estado text)");
+        sqLiteDatabase.execSQL("create table banco_proyecto (nombre text primary key,descripcion text,estado text)");
     }
 
     @Override
