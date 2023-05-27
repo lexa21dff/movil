@@ -4,4 +4,6 @@
     <string name="btn_buscar">Ir</string>
     <string name="visorWeb">Visor</string>
     <string name="btn_regresar">Regresar</string>
+    <string name="open" />
+    <string name="close" />
 </resources>
